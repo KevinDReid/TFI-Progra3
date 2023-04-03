@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import Card from './Card'
 export default class MovieList extends Component {
     constructor(props){
         super(props)

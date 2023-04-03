@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
+import Header from '../../Components/Header/Header'
 import MovieList from '../../Components/Home/MovieList'
-import Header from './Components/Header/Header'
-import Footer from './Components/Footer/Footer'
+import Footer from '../../Components/Footer/Footer'
 
 export default class Home extends Component {
     constructor(props){
@@ -30,7 +30,7 @@ export default class Home extends Component {
         <>
       <Header/>
       <main>
-        
+
       </main>
     <Footer/>
         </>

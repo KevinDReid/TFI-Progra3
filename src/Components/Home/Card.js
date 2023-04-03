@@ -14,7 +14,7 @@ export default class Card extends Component {
   render() {
     return (
       <li>
-        <Link to={'detail/id/' + id}></Link>
+        <Link to={'detail/id/' + this.state.id}></Link>
       </li>
     )
   }
