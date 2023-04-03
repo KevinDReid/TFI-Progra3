@@ -10,11 +10,11 @@ export default class MovieList extends Component {
     
   render() {
     return (
-      <li>
+      <ul>
         {
-            this.state.datos.map((movie, idx)=>)
+            this.state.datos.map((movie, idx)=><Card key={movie+idx} id={movie.id} name={movie.title} img={movie.poster_path} desc={movie.overview}/>)
         }
-      </li>
+      </ul>
     )
   }
 }
