@@ -15,22 +15,22 @@ export default class Home extends Component {
             )
                 .then(function(response) {
                     return response.json()
-            })
+                })
                 .then((data)=>{
-                    console.log(data);
-                this.setState({datos: data.results.filter(result=>result.id<10)})
-                // console.log(this.state.datos);
+                    this.setState({datos: data.results})
+                    // console.log(this.state.datos);
             }
             )
                 .catch(function(error){
                 console.log('Este es el error: ' + error);})
       }
   render() {
+    // console.log(this.state.datos);
     return (
         <>
       <Header/>
       <main>
-
+        <MovieList datos={this.state.datos}/>
       </main>
     <Footer/>
         </>

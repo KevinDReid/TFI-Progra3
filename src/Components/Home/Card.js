@@ -12,9 +12,14 @@ export default class Card extends Component {
         }
     }
   render() {
+    console.log(this.state.img);
     return (
       <li>
-        <Link to={'detail/id/' + this.state.id}></Link>
+        <Link to={'detail/id/:id' + this.state.id}>
+            <img className='movieImg' src={this.props.img} alt='asd'/>
+            <h4>{this.state.name}</h4>
+            <p>{this.state.desc}</p>
+        </Link>
       </li>
     )
   }
