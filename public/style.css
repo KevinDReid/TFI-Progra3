@@ -1,6 +1,9 @@
-/* * {
+html {
     background-color: rgb(24, 26, 27);
-} */
+}
+body {
+    color: #fff;
+}
 h2{
     text-align: center;
 }
@@ -39,4 +42,8 @@ h2{
 footer {
     bottom: 0;
     text-align: center;
+}
+a {
+    text-decoration: none;
+    color: #fff;
 }

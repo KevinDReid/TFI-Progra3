@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './style.css'
 import Header from '../../Components/Header/Header'
 import Footer from '../../Components/Footer/Footer'
 
@@ -29,8 +30,9 @@ export default class Detail extends Component {
         {
         this.state.movie === '' ?
         <h1>Cargando..</h1> :
-        <div>
+        <div className='detail-container'>
             <img src={'https://image.tmdb.org/t/p/original'+this.state.movie.backdrop_path} />
+        <div className='detail-data'>
             <h1>{this.state.movie.title}</h1>
             <h3>Rating: {this.state.movie.vote_average}</h3>
             <h3>Premiered: {this.state.movie.release_date}</h3>
@@ -43,6 +45,7 @@ export default class Detail extends Component {
 
             </li> )}</h3></ul>
             <button>Add to favorites</button>
+        </div>
 
         </div>
         }

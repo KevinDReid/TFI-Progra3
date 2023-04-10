@@ -17,7 +17,7 @@ export default class Card extends Component {
     console.log(this.state);
     return (
       <li className='movieContainer' key={this.state.key}>
-        <Link to={'detail/id/:id' + this.state.id}>
+        <Link to={'detail/id/' + this.state.id}>
             <img className='movieImg' src={this.props.img} alt='asd'/>
             <div className='movieText'>
             <h4 className='movieTitle'>{this.state.name}</h4>
