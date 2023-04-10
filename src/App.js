@@ -12,6 +12,7 @@ function App() {
       <Switch>
         <Route path='/' exact={true} component={Home}/>
         <Route path='/favorites' component={Favorites}/>
+        <Route path='/detail/id/:id' component={Detail}/>
         <Route component={NotFound} />
       </Switch>
     </>
