@@ -24,7 +24,7 @@ export default class Header extends Component {
         </ul>
                 <ul className="main-nav">
             {
-                nav.map((nav, idx) => <li>
+                nav.map((nav, idx) => <li key={nav+idx}>
                     <Link to={nav.path}>
                         {nav.nombre}
                     </Link>

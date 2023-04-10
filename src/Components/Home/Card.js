@@ -5,6 +5,7 @@ export default class Card extends Component {
     constructor(props){
         super(props)
         this.state={
+
             id: this.props.id,
             name: this.props.name,
             img: this.props.img,
@@ -12,13 +13,15 @@ export default class Card extends Component {
         }
     }
   render() {
-    console.log(this.state.img);
+    // console.log(this.state.img);
     return (
-      <li>
+      <li className='movieContainer' key={this.props.key}>
         <Link to={'detail/id/:id' + this.state.id}>
             <img className='movieImg' src={this.props.img} alt='asd'/>
-            <h4>{this.state.name}</h4>
-            <p>{this.state.desc}</p>
+            <div className='movieText'>
+            <h4 className='movieTitle'>{this.state.name}</h4>
+            <p className='movieDesc'>{this.state.desc}</p>
+            </div>
         </Link>
       </li>
     )

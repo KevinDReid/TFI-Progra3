@@ -5,8 +5,13 @@ export default class MovieList extends Component {
         super(props)
         console.log(this.props);
         this.state={
-            datos: this.props.datos
+            datos: props.datos
         }
+    }
+    componentDidUpdate(prevProps) {
+      if (prevProps.datos !== this.props.datos) {
+        this.setState({ datos: this.props.datos });
+      }
     }
 
   render() {
@@ -16,10 +21,10 @@ export default class MovieList extends Component {
     }
   
     else{
-      console.log(this.state.datos[0].id)
+      console.log(this.state.datos)
       return (
 
-      <ul>
+      <ul className='movieSuperContainer'>
 
         {
             this.state.datos.map((movie, idx)=><Card key={movie+idx} id={movie.id} name={movie.title} img={'https://image.tmdb.org/t/p/original' + movie.poster_path} desc={movie.overview}/>)
