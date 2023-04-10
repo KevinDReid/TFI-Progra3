@@ -9,20 +9,22 @@ export default class Card extends Component {
             id: this.props.id,
             name: this.props.name,
             img: this.props.img,
-            desc: this.props.desc
+            desc: this.props.desc,
+            text:'Ver mas',
+            class:'hidden'
         }
     }
 
     changeText(){
-      if(this.state.texto === 'Ver mas'){
+      if(this.state.text === 'Ver mas'){
           this.setState({
-              texto: 'Ver menos',
-              clase: 'show'
+              text: 'Ver menos',
+              class: 'show'
           })
       } else {
           this.setState({
-              texto: 'Ver mas',
-              clase:'hidden'
+              text: 'Ver mas',
+              class:'hidden'
           })
       }
   }
@@ -32,22 +34,27 @@ export default class Card extends Component {
     console.log(this.state);
     return (
       <li className='movieContainer' key={this.state.key}>
-        <Link className='movieLink' to={'detail/id/:id' + this.state.id}>
+        <article className='movieLink'>
+
+        <Link  to={'detail/id/' + this.state.id}>
             <img className='movieImg' src={this.props.img} alt='asd'/>
-          <div>
 
             <div className='movieText'>
             <h4 className='movieTitle'>{this.state.name}</h4>
-            <p className='movieDesc'>{this.state.desc}</p>
+            <p                 className={this.state.class}
+
+>{this.state.desc}</p>
             </div>
+            </Link>
             <div className='movieButtons'>
 
             <button>Agregar a favoritos</button>
             <button>Detalle</button>
-            <button>Ver más</button>
+            <button
+            onClick={()=> this.changeText()}
+            >{this.state.text}</button>
             </div>
-          </div>
-        </Link>
+            </article>
       </li>
     )
   }

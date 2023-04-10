@@ -38,12 +38,15 @@ export default class Detail extends Component {
             <h3>Premiered: {this.state.movie.release_date}</h3>
             <h3>Duration: {this.state.movie.runtime} min</h3>
             <p>{this.state.movie.overview}</p>
-            <ul>
-                <h3>
-                Genre: {this.state.movie.genres.map((genre, idx) => <li key={genre+idx}>
-                {genre.genres}
-
-            </li> )}</h3></ul>
+            <section className='genreList'>
+                  <h3>
+                  Genre:
+                  </h3>
+                  {this.state.movie.genres.map((genre, idx) => 
+                <p className='genreText' key={genre+idx}>
+                        {idx !== this.state.movie.genres.length - 1 ? genre.name + ',' : genre.name}
+ </p> 
+            )}</section>
             <button>Add to favorites</button>
         </div>
 

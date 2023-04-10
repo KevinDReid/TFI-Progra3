@@ -23,12 +23,16 @@ h2{
 }
 .movieContainer{
     height: 20%;
-    
 }
+.movieLink > a{
+    display: flex;
+    width: 95%;
 
-/* .movieText {
-    text-align: ;
-} */
+}
+.movieText {
+    width: 80%;
+    text-align: center;
+}
 .movieLink{
     border: 1px gray solid;
     display: flex;
@@ -48,11 +52,17 @@ h2{
 }
 
 .movieButtons {
+    height: 150px;
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
-    align-items: flex-end;
+    align-items: center;
 }
+.movieButtons > button{
+    width: 70%;
+    height: 40px;
 
+}
 footer {
     bottom: 0;
     text-align: center;
@@ -60,4 +70,25 @@ footer {
 a {
     text-decoration: none;
     color: #fff;
+}
+
+.genreList{
+    display: flex;
+}
+.genreText{
+    margin-left: 0.2%;
+    margin-right: 0.2%;
+    display: flex;
+    align-items: center;
+}
+
+p.hidden{
+    display: none;
+
+}
+
+p.show{
+    display: block;
+
+
 }
