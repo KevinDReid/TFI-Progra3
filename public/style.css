@@ -1,6 +1,10 @@
 /* * {
     background-color: rgb(24, 26, 27);
 } */
+main {
+    display: flex;
+    justify-content: center;
+}
 h2{
     text-align: center;
 }
@@ -18,22 +22,32 @@ h2{
     height: 20%;
     
 }
-.movieContainer > a{
-    border: 1px gray solid;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+
 /* .movieText {
     text-align: ;
 } */
+.movieLink{
+    border: 1px gray solid;
+    display: flex;
+    /* flex-wrap: wrap; */
+    align-items: center;
+    justify-content: center;
+}
+
 .movieTitle{
     /* align-items: center; */
     text-align: center;
 }
 .movieImg {
-    width: 100px;
-    height: 150px;
+    width: 25%;
+    height: 90%;
+    margin: 10px;
+}
+
+.movieButtons {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
 }
 
 footer {
