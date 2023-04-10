@@ -30,14 +30,19 @@ export default class Detail extends Component {
         this.state.movie === '' ?
         <h1>Cargando..</h1> :
         <div>
-            <img src={this.state.movie.image} />
+            <img src={'https://image.tmdb.org/t/p/original'+this.state.movie.backdrop_path} />
             <h1>{this.state.movie.title}</h1>
-            Calificación (rating).
-Fecha de estreno.
-Duración.
-Sinópsis.
-Género al que pertenece la película.
-link o botón agregar a “favoritos”
+            <h3>Rating: {this.state.movie.vote_average}</h3>
+            <h3>Premiered: {this.state.movie.release_date}</h3>
+            <h3>Duration: {this.state.movie.runtime} min</h3>
+            <p>{this.state.movie.overview}</p>
+            <ul>
+                <h3>
+                Genre: {this.state.movie.genres.map((genre, idx) => <li key={genre+idx}>
+                {genre.genres}
+
+            </li> )}</h3></ul>
+            <button>Add to favorites</button>
 
         </div>
         }
