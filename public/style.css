@@ -1,11 +1,21 @@
 /* * {
     background-color: rgb(24, 26, 27);
 } */
-.movieSuperContainer{
-    width: 30%;
+h2{
+    text-align: center;
+}
+.masterMoviesContainer{
+    display: flex;
+    width: 90%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.divCont{
+    width: 35%;
+    height: 20%;
 }
 .movieContainer{
-    height: 200px;
+    height: 20%;
     
 }
 .movieContainer > a{
@@ -22,7 +32,8 @@
     text-align: center;
 }
 .movieImg {
-    width: 20%;
+    width: 100px;
+    height: 150px;
 }
 
 footer {

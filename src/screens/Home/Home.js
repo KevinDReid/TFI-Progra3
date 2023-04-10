@@ -7,7 +7,8 @@ export default class Home extends Component {
     constructor(props){
         super(props)
         this.state={
-            datos:[]
+            datosPop:[],
+            datosTop:[]
         }
     }
     componentDidMount(){
@@ -17,7 +18,19 @@ export default class Home extends Component {
                     return response.json()
                 })
                 .then((data)=>{
-                    this.setState({datos: data.results})
+                    this.setState({datosPop: data.results.slice(0,5)})
+                    // console.log(this.state.datos);
+            }
+            )
+                .catch(function(error){
+                console.log('Este es el error: ' + error);})
+            fetch('https://api.themoviedb.org/3/movie/top_rated?api_key=97652419e5f4276e5a5fa6f28df39f8c'
+            )
+                .then(function(response) {
+                    return response.json()
+                })
+                .then((data)=>{
+                    this.setState({datosTop: data.results.slice(0,5)})
                     // console.log(this.state.datos);
             }
             )
@@ -30,7 +43,7 @@ export default class Home extends Component {
         <>
       <Header/>
       <main>
-        <MovieList datos={this.state.datos}/>
+        <MovieList datosPop={this.state.datosPop} datosTop={this.state.datosTop}/>
       </main>
     <Footer/>
         </>
