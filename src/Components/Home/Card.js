@@ -15,6 +15,18 @@ export default class Card extends Component {
     };
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.id !== this.props.id || prevProps.name !== this.props.name || prevProps.img !== this.props.img || prevProps.desc !== this.props.desc) {
+      this.setState({
+        key: this.props.key,
+        id: this.props.id,
+        name: this.props.name,
+        img: this.props.img,
+        desc: this.props.desc,
+      });
+      console.log(this.props);
+    }
+  }
   changeText() {
     if (this.state.text === "Ver mas") {
       this.setState({
@@ -30,11 +42,11 @@ export default class Card extends Component {
   }
 
   render() {
-    console.log(this.state);
     return (
+      
       <li className="movieContainer" key={this.state.key}>
         <article className="movieLink">
-          <img className="movieImg" src={this.props.img} alt="asd" />
+          <img className="movieImg" src={this.state.img ? "https://image.tmdb.org/t/p/original" +this.state.img : 'https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg'} alt="asd" />
 
           <div className="movieText">
             <h4 className="movieTitle">{this.state.name}</h4>

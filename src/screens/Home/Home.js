@@ -4,7 +4,6 @@ import { ClipLoader } from "react-spinners";
 import Header from "../../Components/Header/Header";
 import MovieList from "../../Components/Home/MovieList";
 import Footer from "../../Components/Footer/Footer";
-
 export default class Home extends Component {
   constructor(props) {
     super(props);
@@ -16,7 +15,7 @@ export default class Home extends Component {
   }
   componentDidMount() {
     fetch(
-      "https://api.themoviedb.org/3/trending/all/day?api_key=97652419e5f4276e5a5fa6f28df39f8c"
+      "https://api.themoviedb.org/3/trending/movie/day?api_key=97652419e5f4276e5a5fa6f28df39f8c"
     )
       .then(function (response) {
         return response.json();

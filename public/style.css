@@ -8,21 +8,24 @@ main {
 body {
     color: #fff;
 }
-h2{
-    text-align: center;
+.title {
+
 }
 .masterMoviesContainer{
+    margin-top: 5%;
     display: flex;
     width: 90%;
     flex-wrap: wrap;
     justify-content: space-around;
 }
 .divCont{
+    display: flex;
+    flex-direction: column;
     width: 35%;
     height: 20%;
 }
 .movieContainer{
-    /* height: 50%; */
+    height: 50%;
 }
 .movieLink > a{
     display: flex;
@@ -53,13 +56,15 @@ h2{
 
 .movieButtons {
     height: 200px;
+
+    text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
 }
 .movieButtons > button{
-    width: 70%;
+    width: 80%;
     height: 50px;
 
 }
@@ -108,4 +113,15 @@ p.show{
   .loader-container > div {
     margin: 0 auto;
     text-align: center;
+  }
+
+  .moreButton{
+    width: 98%;
+    height: 40px;
+    margin-left: 1%;
+    margin-right: 1%;
+    font-size: 18px;
+    color: #fff;
+    font-weight:600;
+    background-color: darkslategray;
   }

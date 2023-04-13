@@ -1,0 +1,35 @@
+
+  form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .searchInput {
+    padding: 8px;
+    border: 2px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    font-size: 16px;
+    outline: none;
+    width: 200px;
+    height: 35px;
+  }
+  
+  .bSearch {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    padding: 8px;
+    font-size: 16px;
+  }
+  
+  .bSearch:hover {
+    background-color: #3e8e41;
+  }
+  
+  .bSearch:active {
+    background-color: #3e8e41;
+    transform: translateY(2px);
+  }

@@ -1,37 +1,39 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import './style.css'
+import "./style.css";
 
 const nav = [
   {
-      nombre: 'Home',
-      path: '/'
+    nombre: "Home",
+    path: "/",
   },
   {
-      nombre:'Favorites',
-      path: '/favorites'
-  }
-]
+    nombre: "All",
+    path: "/all",
+  },
+  {
+    nombre: "Favorites",
+    path: "/favorites",
+  },
+];
 
 export default class Header extends Component {
   render() {
     return (
       <nav>
         <ul>
-            <li>
-                <img className='logo' src="./img/logo.png" alt=""/>
-            </li>
+          <li>
+            <img className="logo" src="./img/logo.png" alt="" />
+          </li>
         </ul>
-                <ul className="main-nav">
-            {
-                nav.map((nav, idx) => <li key={nav+idx}>
-                    <Link to={nav.path}>
-                        {nav.nombre}
-                    </Link>
-                </li>)
-            }
+        <ul className="main-nav">
+          {nav.map((nav, idx) => (
+            <li key={nav + idx}>
+              <Link to={nav.path}>{nav.nombre}</Link>
+            </li>
+          ))}
         </ul>
       </nav>
-    )
+    );
   }
 }
