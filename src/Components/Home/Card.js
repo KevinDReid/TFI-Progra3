@@ -12,7 +12,54 @@ export default class Card extends Component {
       desc: this.props.desc,
       text: "Ver mas",
       class: "hidden",
+      favorite: false,
     };
+  }
+  componentDidMount(){
+    let storage = localStorage.getItem('favorites')
+    let storageArray = JSON.parse(storage)
+
+    if(storageArray !== null){
+      let inStorage = storageArray.includes(this.state.id)
+      if(inStorage){
+        this.setState({
+          favorites: true
+        })
+      }
+    }
+  }
+  addFav(id){
+    let storage = localStorage.getItem('favorites')
+
+    if(storage === null){
+      let stringedArray = JSON.stringify([id])
+      localStorage.setItem('favorites', stringedArray)
+
+    } else {
+      let stringToArray = JSON.parse(storage) 
+      stringToArray.push(id)
+      let stringedArray = JSON.stringify(stringToArray)
+      localStorage.setItem('favorites', stringedArray)
+    }
+
+    this.setState({
+      favorite: true
+    })
+  }
+  
+
+  removeFromFav(id){
+    let storage = localStorage.getItem('favorites')
+    let storageArray = JSON.parse(storage)
+    let filter = storageArray.filter((elm)=> elm !== id)
+    let filterToString = JSON.stringify(filter)
+    localStorage.setItem('favorites', filterToString)
+
+    this.setState({
+      favorites: false
+    })
+
+
   }
 
   componentDidUpdate(prevProps) {
@@ -53,7 +100,12 @@ export default class Card extends Component {
             <p className={this.state.class}>{this.state.desc}</p>
           </div>
           <div className="movieButtons">
-            <button>Agregar a favoritos</button>
+          {
+              this.state.favorite ?
+               <button onClick={()=> this.removeFromFav(this.state.id)}> Remove</button>
+              :
+                <button onClick={()=> this.addFav(this.state.id)}>Add</button>
+            }
             <button
               onClick={() =>
                 (window.location.href = "detail/id/" + this.state.id)
