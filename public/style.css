@@ -8,9 +8,7 @@ main {
 body {
     color: #fff;
 }
-.title {
 
-}
 .masterMoviesContainer{
     margin-top: 5%;
     display: flex;
@@ -64,7 +62,7 @@ body {
     align-items: center;
 }
 .movieButtons > button{
-    width: 80%;
+    width: 90%;
     height: 50px;
 
 }

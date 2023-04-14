@@ -4,7 +4,8 @@ nav{
     flex-wrap: wrap;
     padding: 0 20px;
     background-color: #000;
-    color: #fff
+    color: #fff;
+    justify-content: space-between;
 }
 
 nav ul {

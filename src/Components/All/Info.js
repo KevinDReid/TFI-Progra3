@@ -11,9 +11,22 @@ export default class Info extends Component {
       name: this.props.name,
       img: this.props.img,
       desc: this.props.desc,
-      text: "Ver mas",
+      text: "More",
       class: "hidden",
     };
+  }
+  componentDidMount() {
+    let storage = localStorage.getItem("favorites");
+    let storageArray = JSON.parse(storage);
+
+    if (storageArray !== null) {
+      let inStorage = storageArray.includes(this.state.id);
+      if (inStorage) {
+        this.setState({
+          favorites: true,
+        });
+      }
+    }
   }
   componentDidUpdate(prevProps) {
     if (prevProps.mKey !== this.props.mKey) {
@@ -32,15 +45,46 @@ export default class Info extends Component {
       this.setState({ desc: this.props.desc });
     }
   }
+  addFav(id) {
+    let storage = localStorage.getItem("favorites");
+
+    if (storage === null) {
+      let stringedArray = JSON.stringify([id]);
+      localStorage.setItem("favorites", stringedArray);
+    } else {
+      let stringToArray = JSON.parse(storage);
+      stringToArray.push(id);
+      let stringedArray = JSON.stringify(stringToArray);
+      localStorage.setItem("favorites", stringedArray);
+    }
+
+    this.setState({
+      favorite: true,
+    });
+  }
+
+  removeFromFav(id) {
+    let storage = localStorage.getItem("favorites");
+    let storageArray = JSON.parse(storage);
+    let filter = storageArray.filter((elm) => elm !== id);
+    let filterToString = JSON.stringify(filter);
+    localStorage.setItem("favorites", filterToString);
+
+    this.setState({
+      favorite: false,
+    });
+    console.log(this.state.favorite);
+  }
+
   changeText() {
-    if (this.state.text === "Ver mas") {
+    if (this.state.text === "More") {
       this.setState({
-        text: "Ver menos",
+        text: "Less",
         class: "show",
       });
     } else {
       this.setState({
-        text: "Ver mas",
+        text: "More",
         class: "hidden",
       });
     }
@@ -57,7 +101,15 @@ export default class Info extends Component {
         <h4 className="cardTitle">{this.state.name}</h4>
         <p className={this.state.class}>{this.state.desc}</p>
         <div className="movieButtons cardButtons">
-          <button>Agregar a favoritos</button>
+          {localStorage.getItem("favorites") != null &&
+          localStorage.getItem("favorites").includes(this.state.id) ? (
+            <button onClick={() => this.removeFromFav(this.state.id)}>
+              {" "}
+              Remove
+            </button>
+          ) : (
+            <button onClick={() => this.addFav(this.state.id)}>Add</button>
+          )}{" "}
           <button
             onClick={() =>
               (window.location.href = "detail/id/" + this.state.id)
