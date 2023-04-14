@@ -1,9 +1,11 @@
 html {
     background-color: rgb(24, 26, 27);
-} */
+} 
 main {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
 }
 body {
     color: #fff;
