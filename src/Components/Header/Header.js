@@ -23,7 +23,9 @@ export default class Header extends Component {
       <nav>
         <ul>
           <li>
-            <img className="logo" src="./img/logo.png" alt="" />
+            <Link to={nav[0].path}>
+              <img className="logo" src="./img/logo.png" alt="" />
+            </Link>
           </li>
         </ul>
         <ul className="main-nav">
